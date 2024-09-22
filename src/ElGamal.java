@@ -3,7 +3,7 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public class ElGamal {
-    
+
     private static final SecureRandom random = new SecureRandom();
     private BigInteger p, g, y, x;
     int bitLength;
@@ -18,7 +18,7 @@ public class ElGamal {
 
         this.repeat=repeat;
         this.bglen=bglen;
-    	
+
         // Generate large prime number p
         p = BigInteger.probablePrime(bitLength, random);
         // Select a generator g
@@ -27,7 +27,7 @@ public class ElGamal {
         x = new BigInteger(bitLength - 1, random).mod(p.subtract(BigInteger.ONE));
         // Public key y = g^x mod p
         y = g.modPow(x, p);
-        
+
         msg=new BigInteger[repeat];
         c=new BigInteger[repeat][];
 		Random random=new Random();
@@ -71,21 +71,21 @@ public class ElGamal {
 			c[i]=encrypt(msg[i]);
 		}
     }
-    
+
     public void executeDecrypt() {
 		for(int i=0;i<repeat;i++) {
 			decrypt(c[i]);
 		}
     }
-    
-    
+
+
     public static void main(String[] args) {
 		long ms;
 		ElGamal elGamal = new ElGamal(1024,100,10);
     	ms=System.currentTimeMillis();
     	elGamal.executeEncrypt();
 		System.out.println("Paillier Encrypt time cost:"+(System.currentTimeMillis()-ms)*1.0/elGamal.repeat);
-		
+
     	ms=System.currentTimeMillis();
     	elGamal.executeDecrypt();
 		System.out.println("Paillier Decrypt time cost:"+(System.currentTimeMillis()-ms)*1.0/elGamal.repeat);

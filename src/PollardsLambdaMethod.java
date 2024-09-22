@@ -1,6 +1,4 @@
 import java.math.BigInteger;
-import java.util.Random;
-import java.security.SecureRandom;
 
 public class PollardsLambdaMethod {
 
@@ -48,24 +46,24 @@ public class PollardsLambdaMethod {
         return null; // 没有找到离散对数
     }
 
-    
+
     public static void executePollardsLambda(int repeat) {
         BigInteger g = BigInteger.valueOf(2); // 基数
         BigInteger h = BigInteger.valueOf(22); // h = g^x mod p
         BigInteger p = BigInteger.valueOf(29); // 素数
-        
+
     	for(int i=0;i<repeat;i++) {
-    		 BigInteger log = pollardsLambda(g, h, p);    		
+    		 BigInteger log = pollardsLambda(g, h, p);
     	}
-    	
+
     }
-    
+
     public static void main(String[] args) {
 		long ms;
     	ms=System.currentTimeMillis();
     	executePollardsLambda(100);
 		System.out.println("Paillier Encrypt time cost:"+(System.currentTimeMillis()-ms)*1.0/100);
-       
-        
+
+
     }
 }

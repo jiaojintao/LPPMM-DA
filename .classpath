@@ -8,6 +8,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/jpbc-api-2.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jpbc-plaf-2.0.0.jar"/>
-	<classpathentry kind="lib" path="lib/bcprov-jdk18on-1.78.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

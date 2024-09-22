@@ -1,17 +1,17 @@
+import java.math.BigInteger;
+import java.util.Random;
+
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.ElementPowPreProcessing;
-import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.Field;
+import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.jpbc.PairingParameters;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
 
-import java.math.BigInteger;
-import java.util.Random;
-
 
 public class PointMultiplicationECC {
-	
+
 	int rBit;
 	int qBit;
 	int repeat;
@@ -23,7 +23,7 @@ public class PointMultiplicationECC {
 	ElementPowPreProcessing ppp;
 	int bglen;
 	BigInteger[] bigInt;
-	
+
 	public PointMultiplicationECC(int rBit, int qBit, int bglen, int repeat) {
 		this.rBit=rBit;
 		this.qBit=qBit;
@@ -41,8 +41,8 @@ public class PointMultiplicationECC {
 		for(int i=0;i<repeat;i++) {
 			bigInt[i]=new BigInteger(bglen,random);
 		}
-		
-		
+
+
 	}
     //Performs point multiplication on the elliptic curve
 
@@ -55,14 +55,14 @@ public class PointMultiplicationECC {
         result = result.getImmutable();
         return result;
     }
-    
+
     public void executePointMultiplication() {
 		for(int i=0;i<repeat;i++) {
 			pointMultiplication(ppp,bigInt[i]);
-		}	
-    	
+		}
+
     }
-	
+
 
     public static void main(String[] args) {
 		long ms;
